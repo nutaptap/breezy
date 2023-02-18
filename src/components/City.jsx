@@ -1,25 +1,14 @@
-import { useEffect } from "react";
+import Tabs from "./Tabs";
 
-const City = () => {
-  const apiKey = "4ac0db577dcd1464b28232be4b9ad3d3";
-  const name = "Barcelona";
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}&units=metric`
-      );
-      const data = await response.json();
-      console.log(data);
-    };
-
-    fetchData();
-  }, [name]);
-
+const City = (props) => {
   return (
-    <>
-      <p>{name}</p>
-    </>
+    <div className="city-container">
+      <div>
+        <h2>{props.data.name}</h2>
+        <p>{props.data.main.temp} °</p>
+      </div>
+      <Tabs data={props.data} pollution={props.pollution} />
+    </div>
   );
 };
 

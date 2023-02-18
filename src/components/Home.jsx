@@ -1,10 +1,11 @@
 import City from "./City";
+import Search from "./Search";
 
 const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <City />
+      <Search />
     </>
   );
 };
