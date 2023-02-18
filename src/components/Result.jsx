@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import City from "./City";
 
 const Result = () => {
   const { id } = useParams();
   const apiKey = "4ac0db577dcd1464b28232be4b9ad3d3";
-
   const [weatherData, setWeatherData] = useState(null);
   const [airData, setAirData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${id}&appid=${apiKey}&units=metric`
-      );
-      const data = await response.json();
-      setWeatherData(data);
-      console.log(data);
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${id}&appid=${apiKey}&units=metric`
+        );
+
+        if (!response.ok) {
+          navigate("/not-found");
+        }
+
+        const data = await response.json();
+        setWeatherData(data);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     fetchData();

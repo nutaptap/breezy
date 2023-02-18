@@ -1,5 +1,13 @@
+import TabsSettings from "./TabsSettings";
+import UnitsSettings from "./UnitsSettings";
+
 const Settings = () => {
-  return <h1>Settings</h1>;
+  return (
+    <>
+      <UnitsSettings />
+      <TabsSettings />
+    </>
+  );
 };
 
 export default Settings;

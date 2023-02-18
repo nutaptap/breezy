@@ -8,7 +8,7 @@ const Search = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(search);
-    navigate(search);
+    navigate(`/${search}`);
   };
 
   const handleInputChange = (event) => {
