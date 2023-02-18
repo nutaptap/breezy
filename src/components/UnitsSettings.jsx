@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import SettingsContext from "../context/SettingsContext";
 
 const UnitsSettings = () => {
-  const [unit, setUnit] = useState("celsius");
+  const { settings, updateSetting } = useContext(SettingsContext);
 
   const handleUnitChange = (event) => {
-    setUnit(event.target.value);
-    console.log(unit);
+    const newSetting = event.target.value;
+    updateSetting("units", newSetting);
   };
 
   return (
@@ -15,9 +16,8 @@ const UnitsSettings = () => {
         type="radio"
         name="unit"
         value="celsius"
-        defaultChecked
+        defaultChecked={settings.units === "celsius"}
         onChange={handleUnitChange}
-        checked={unit === "celsius"}
       />
       <label htmlFor="celsius">Celsius</label>
       <input
@@ -25,8 +25,8 @@ const UnitsSettings = () => {
         type="radio"
         name="unit"
         value="fahrenheit"
+        defaultChecked={settings.units === "fahrenheit"}
         onChange={handleUnitChange}
-        checked={unit === "fahrenheit"}
       />
       <label htmlFor="fahrenheit">Fahrenheit</label>
     </form>
