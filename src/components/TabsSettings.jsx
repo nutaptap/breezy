@@ -11,34 +11,50 @@ const TabsSettings = () => {
 
   return (
     <form>
-      <input
-        type="checkbox"
-        id="rain"
-        onChange={handleChange}
-        defaultChecked={settings.rain}
-      />
-      <label htmlFor="rain">Rain</label>
-      <input
-        type="checkbox"
-        id="humidity"
-        onChange={handleChange}
-        defaultChecked={settings.humidity}
-      />
-      <label htmlFor="humidity">Humidity</label>
-      <input
-        type="checkbox"
-        id="wind"
-        onChange={handleChange}
-        defaultChecked={settings.wind}
-      />
-      <label htmlFor="wind">Wind</label>
-      <input
-        type="checkbox"
-        id="pollution"
-        onChange={handleChange}
-        defaultChecked={settings.pollution}
-      />
-      <label htmlFor="pollution">Pollution</label>
+      <div>
+        <input
+          type="checkbox"
+          id="rain"
+          onChange={handleChange}
+          defaultChecked={settings.rain}
+          className="offscreen"
+        />
+        <label htmlFor="rain" className="switch"></label>
+        <p>Rain</p>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="humidity"
+          onChange={handleChange}
+          defaultChecked={settings.humidity}
+          className="offscreen"
+        />
+        <label htmlFor="humidity" className="switch"></label>
+        <p>Humidity</p>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="wind"
+          onChange={handleChange}
+          defaultChecked={settings.wind}
+          className="offscreen"
+        />
+        <label htmlFor="wind" className="switch"></label>
+        <p>Wind</p>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="pollution"
+          onChange={handleChange}
+          defaultChecked={settings.pollution}
+          className="offscreen"
+        />
+        <label htmlFor="pollution" className="switch"></label>
+        <p>Pollution</p>
+      </div>
     </form>
   );
 };

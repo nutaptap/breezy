@@ -3,10 +3,10 @@ import UnitsSettings from "./UnitsSettings";
 
 const Settings = () => {
   return (
-    <>
+    <div className="settings">
       <UnitsSettings />
       <TabsSettings />
-    </>
+    </div>
   );
 };
 

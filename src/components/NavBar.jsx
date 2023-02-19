@@ -1,21 +1,25 @@
 import { Link } from "react-router-dom";
 import DarkmodeSwitch from "./DarkmodeSwitch";
 import Logo from "../images/breezy.png";
+import DarkmodeContext from "../context/DarkmodeContext";
+import React, { useContext } from "react";
 
 const NavBar = () => {
+  const { darkmode } = useContext(DarkmodeContext);
+
   return (
-    <nav>
+    <nav className={darkmode ? "darkmode" : ""}>
       <div className="logo">
         <img src={Logo} alt="Logo" />
-        <p>BREEZY</p>
+        <p>Breezy</p>
       </div>
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="/settings">Settings</Link>
+            <Link to="/settings">SETTINGS</Link>
           </li>
         </ul>
         <DarkmodeSwitch />

@@ -5,12 +5,16 @@ const DarkmodeSwitch = () => {
   const { darkmode, toggleDarkmode } = useContext(DarkmodeContext);
 
   return (
-    <input
-      type="checkbox"
-      id="darkmode"
-      onChange={toggleDarkmode}
-      defaultChecked
-    />
+    <div>
+      <input
+        type="checkbox"
+        id="darkmode"
+        onChange={toggleDarkmode}
+        defaultChecked={darkmode}
+        className="offscreen"
+      />
+      <label for="darkmode" className="switch"></label>
+    </div>
   );
 };
 
